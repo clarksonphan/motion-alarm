@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+body {
+  background-color: #4c4a4a; /* Replace with your desired color */
+}
 
 .App-header {
   background-color: #282c34;
