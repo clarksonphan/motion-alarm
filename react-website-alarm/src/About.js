@@ -1,4 +1,4 @@
-import { NavBarBootstrap } from '../navbarBS.js';
+import { NavBarBootstrap } from './navbarBS.js';
 
 export default function About() {
 return (
