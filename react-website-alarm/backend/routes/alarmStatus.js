@@ -1,5 +1,4 @@
 const express = require('express')
-const alarm = require('../models/alarmStat')
 const {getAlarms} = require('../controllers/alarmControllers')
 const router = express.Router()
 
