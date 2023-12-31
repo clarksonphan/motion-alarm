@@ -5,7 +5,8 @@ const getAlarms = async(req,res) => {
     try {
         
         const db = req.app.get('db'); // Access the existing Mongoose connection from app
-        const alarmsCollection = db.collection('lockedStatus');
+        const alarmStatusDb = mongoose.connection.useDb('alarmStatus');
+        const alarmsCollection = alarmStatusDb.collection('lockedStatus');
         const alarms = await alarmsCollection.find({}).toArray();
         console.log('DB Name:', db.name);
         console.log('result:', alarms)
