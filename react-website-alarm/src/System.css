@@ -1,0 +1,30 @@
+.System{
+    min-height: 100%;
+    background-color: #e6e6e8;
+}
+
+.statuses{
+    background-color: #e6e6e8;
+    display: flex;
+    margin: 0px;
+    padding: 15px;
+    justify-content: flex-start;
+    align-content: center;
+    flex-direction: column;
+}
+
+.update-box{
+    width: 90%;
+    background-color: white;
+    border: none;
+    border-color: #6d6d6d;
+    border-width: 1px;
+    border-radius: 12px;
+    margin: 15px;
+    padding: 15px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+
+
+
+
+}

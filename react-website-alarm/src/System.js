@@ -1,6 +1,7 @@
 import {useEffect, useState } from 'react'
 
 import AlarmDetails from './AlarmDetails';
+import './System.css'
 
 const System = () => {
     const [alarms, setAlarm] = useState(null)
