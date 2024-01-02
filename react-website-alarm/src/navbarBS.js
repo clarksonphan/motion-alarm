@@ -1,7 +1,7 @@
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import {Router, Routes, Route, BrowserRouter, Switch} from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import lock from "./lock.png";
+import lock from "./pictures/lock.png";
 import React from 'react'
 import System from "./System.js"
 import About from "./About.js"
