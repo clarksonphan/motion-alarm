@@ -5,7 +5,9 @@ import User from "./User.js"
 import 'bootstrap/dist/css/bootstrap.css'
 import {Router, Routes, Route, BrowserRouter} from 'react-router-dom';
 import { NavBarBootstrap } from './navbarBS.js';
+import useNotification from './useNotification';
 import "./App.css"
+import AutoRefresh from './AutoRefresh'; 
 
 /*The image src is currently temporary */
 /*System logs page will be considered the home page with both the logs + status
@@ -13,8 +15,11 @@ import "./App.css"
   About us is self explanatory
 */
 function App() {
+  
   return (
+    
     <BrowserRouter>
+      
       <NavBarBootstrap/>
       <Routes>
         <Route path="/" element={<System />} />
