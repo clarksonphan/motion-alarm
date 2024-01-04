@@ -53,14 +53,26 @@ const User = () => {
           <button onClick={toggleDarkMode} className={`dark-button ${isDarkMode ? 'dark' : 'light'}`}>
             {isDarkMode ? 'Light Mode' : 'Dark Mode'}
           </button>
+        </div>
+
+        <div className='notifs'>
           <h6>Enable Notifications?</h6>
           {/* Change class based on isDarkMode */}
           <button onClick={requestNotificationPermission} className={`notification-button ${isDarkMode ? 'dark' : 'light'}`}>
             Enable Notifications
           </button>
         </div>
+
+        <div className="sounds">
+            <h6>Noitifcation Sound</h6>
+            <form className="sound-form">
+                <input type="file">
+
+                </input>
+            </form>
+        </div>
+
       </div>
-      <div className="spacer"></div>
     </div>
   );
 };

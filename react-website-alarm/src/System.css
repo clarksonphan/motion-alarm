@@ -10,7 +10,7 @@
     padding: 15px;
     justify-content: flex-start;
     align-content: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
     color: var(--text-color);
 }
 
