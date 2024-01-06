@@ -2,6 +2,9 @@ import Card from 'react-bootstrap/Card'
 import CardImg from 'react-bootstrap/esm/CardImg.js';
 import Button from 'react-bootstrap/Button'
 import smiley from "./pictures/download.png"
+
+
+
 export default function About() {
 return (
 

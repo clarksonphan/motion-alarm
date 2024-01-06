@@ -13,6 +13,15 @@ import "./App.css"
   User Options will allow users to modify light/dark mode on the website?
   About us is self explanatory
 */
+
+Notification.requestPermission().then(permission => {
+  if (permission === 'granted') {
+    new Notification('Title', {
+      body: 'You have enabled notifications.'
+    });
+  }
+});
+
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +32,7 @@ function App() {
         <Route path="/About" element ={<AboutV2/>}/>
         <Route path="/User" element ={<User />}/>
       </Routes>
+
     </BrowserRouter>
   );
 }

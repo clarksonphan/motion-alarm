@@ -1,6 +1,6 @@
 import "./User.css"
 import React, { useState, useEffect } from 'react';
-
+import lock from './pictures/lock.png'
 
 const User = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -25,6 +25,16 @@ const User = () => {
     const toggleDarkMode = () => {
         setIsDarkMode(prevMode => !prevMode);
     };
+    const sendNotif = () => {
+         if (Notification.permission === 'granted') {
+        // If permission is granted, show the notification
+            new Notification('LETS GOOOOO', {
+                body: 'This is the notification message.',
+                icon: lock
+        });
+    };
+    };
+   
     
     return (
         <div className="user">
@@ -39,6 +49,11 @@ const User = () => {
                         class="dark-button"
                     >
                         {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+                    </button>
+                    <h6>Send Notif</h6>
+                    <button
+                        onClick={sendNotif}
+                        >
                     </button>
                 </div>
 

@@ -3,6 +3,9 @@ import {useEffect, useState } from 'react'
 import AlarmDetails from './AlarmDetails';
 import './System.css'
 
+
+
+
 const System = () => {
     const [alarms, setAlarm] = useState(null)
     useEffect(() => {
@@ -51,7 +54,7 @@ const System = () => {
                 {alarms && alarms.map((alarm) => (
                     <AlarmDetails key={alarm._id} alarm={alarm} />
                 ))}
-                </div>
+                </div> 
         </div>
     )
 }
