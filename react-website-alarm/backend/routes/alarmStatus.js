@@ -1,4 +1,5 @@
 const express = require('express')
+const { getRecentInsert } = require('../controllers/alarmControllers');
 const {getAlarms} = require('../controllers/alarmControllers')
 const router = express.Router()
 
@@ -9,9 +10,10 @@ router.get('/', (req, res) => {
   });
 
 //get one alarm status
-router.get('/:id', (req,res) => {
-    res.json({mssg: 'get one alarm status'})
-})
+router.get('/recentInsert', (req, res) => {
+    const recentInsert = getRecentInsert();
+    res.json(recentInsert);
+});
 
 
 module.exports = router 
