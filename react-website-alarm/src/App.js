@@ -1,7 +1,7 @@
 import './App.css';
 import System from "./System.js"
 import About from "./About.js"
-import AboutV2 from "./AboutV2.js"
+import AboutV2 from "./About.js"
 import User from "./User.js"
 import 'bootstrap/dist/css/bootstrap.css'
 import {Router, Routes, Route, BrowserRouter} from 'react-router-dom';
@@ -14,14 +14,6 @@ import "./App.css"
   About us is self explanatory
 */
 
-Notification.requestPermission().then(permission => {
-  if (permission === 'granted') {
-    new Notification('Title', {
-      body: 'You have enabled notifications.'
-    });
-  }
-});
-
 function App() {
   return (
     <BrowserRouter>
@@ -29,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<System />} />
         <Route path="/System" element ={<System />}/>
-        <Route path="/About" element ={<AboutV2/>}/>
+        <Route path="/About" element ={<About/>}/>
         <Route path="/User" element ={<User />}/>
       </Routes>
 
