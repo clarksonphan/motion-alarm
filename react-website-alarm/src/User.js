@@ -1,5 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './User.css'; // Make sure to import your CSS file
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDegXvsB9HVjncxUrI3ailvV5sZT6WCcsE",
+    authDomain: "azbuild-c1339.firebaseapp.com",
+    projectId: "azbuild-c1339",
+    storageBucket: "azbuild-c1339.appspot.com",
+    messagingSenderId: "110871533451",
+    appId: "1:110871533451:web:0ed479602ae45aa213418e",
+    measurementId: "G-86C6KBDX3N"
+  };
+  
+  
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 const User = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);

@@ -2,15 +2,15 @@ require('dotenv').config()
 
 
 const express = require('express')
+const cors = require('cors');
 const mongoose = require('mongoose')
 const alarmRoutes = require('./routes/alarmStatus')
 const alarmControllers = require('./controllers/alarmControllers');
 
 
 
-
-
 const app = express()
+app.use(cors());
 //routes
 app.use('/api/alarmStatus',alarmRoutes)
 
@@ -22,6 +22,7 @@ app.use((req,res,next) => {
     next()
 })
 
+
 //connnect to db
 mongoose.connect(process.env.MONGO_URI).then(() => {
     app.set('db', mongoose.connection);
@@ -30,6 +31,7 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 
     // Initialize change stream setup here
     alarmControllers.setUpChangeStream(alarmsCollection);
+    
     app.listen(process.env.PORT,() => {
         console.log('listening on port and connected to db', process.env.PORT)
     })

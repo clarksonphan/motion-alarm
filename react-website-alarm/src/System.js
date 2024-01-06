@@ -24,9 +24,14 @@ const System = () => {
             }
         }
         fetchAlarmStatus()
+        
     }, [])
+    
+    
+
 
     const [isDarkMode, setIsDarkMode] = useState(false);
+
 
     useEffect(() => {
         // Check for saved preference in local storage
