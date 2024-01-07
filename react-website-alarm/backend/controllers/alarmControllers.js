@@ -14,9 +14,10 @@ function setUpChangeStream(alarmsCollection) {
     const recentEntry = change.fullDocument;
     console.log('recent entry:', recentEntry);
     recentInsert = recentEntry;
-    
   });
 }
+
+
 //get all alarms
 const getAlarms = async(req,res) => {
     try {

@@ -3,8 +3,10 @@ import {useEffect, useState } from 'react'
 import AlarmDetails from './AlarmDetails';
 import './System.css'
 
+
 const System = () => {
     const [alarms, setAlarm] = useState(null)
+    
     useEffect(() => {
         const fetchAlarmStatus = async() => {
             try {
@@ -27,8 +29,6 @@ const System = () => {
         
     }, [])
     
-    
-
 
     const [isDarkMode, setIsDarkMode] = useState(false);
 

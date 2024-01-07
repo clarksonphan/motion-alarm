@@ -1,21 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './User.css'; // Make sure to import your CSS file
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
+import { setGlobalSound } from './soundUtils';
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDegXvsB9HVjncxUrI3ailvV5sZT6WCcsE",
-    authDomain: "azbuild-c1339.firebaseapp.com",
-    projectId: "azbuild-c1339",
-    storageBucket: "azbuild-c1339.appspot.com",
-    messagingSenderId: "110871533451",
-    appId: "1:110871533451:web:0ed479602ae45aa213418e",
-    measurementId: "G-86C6KBDX3N"
-  };
-  
-  
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+
+
 
 const User = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -59,6 +48,12 @@ const User = () => {
     }
   };
 
+  
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setGlobalSound(file);
+  };
+
   return (
     <div className={`user ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="options-box">
@@ -80,12 +75,13 @@ const User = () => {
         </div>
 
         <div className="sounds">
-            <h6>Noitifcation Sound</h6>
+            <h6>Noitifcation Sound</h6> 
             <form className="sound-form">
-                <input type="file">
-
-                </input>
+            <input type="file" accept="audio/*" onChange={handleFileChange} />
             </form>
+            <button>
+            Enable Sound
+          </button>
         </div>
 
       </div>

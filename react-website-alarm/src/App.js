@@ -7,16 +7,38 @@ import {Router, Routes, Route, BrowserRouter} from 'react-router-dom';
 import { NavBarBootstrap } from './navbarBS.js';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import lock from "./lock.png";
+import { getGlobalSound } from './soundUtils';
+/*The image src is currently temporary */
+/*System logs page will be considered the home page with both the logs + status
+  User Options will allow users to modify light/dark mode on the website?
+  About us is self explanatory
+*/
+const playSound = () => {
+  const selectedSound = getGlobalSound();
+
+  if (selectedSound) {
+    const audio = new Audio();
+    audio.src = selectedSound; // Use the base64 string as source
+    audio.play();
+  }
+};
 
 function App() {
+  let userInteracted = false;
+
+document.addEventListener('click', () => {
+  userInteracted = true;
+  console.log('User interacted with the page.');
+});
   const [recentEntry, setRecentEntry] = useState(null);
-  let prev = 3; 
-  
+  let prev = 3;
+  const savedPrev = localStorage.getItem('savedPrev');
+  if (savedPrev){
+    prev = savedPrev
+  }
+
   
   const displayNotification = (lockStatus) => {
-    const notificationShown = localStorage.getItem('notificationShown');
-    console.log(notificationShown)
     if (Notification.permission !== 'granted') {
       Notification.requestPermission().then(permission => {
         if (permission === 'granted') {
@@ -27,6 +49,10 @@ function App() {
         }
       });
     } else {
+      playSound();
+      
+
+
       // Notifications are already enabled
       let notificationMessage = '';
 
@@ -38,9 +64,9 @@ function App() {
       }
 
       if (notificationMessage !== '') {
+
         new Notification('Change in lock status!', {
-          body: notificationMessage,
-          icon: lock
+          body: notificationMessage
         });
       }
     }
@@ -54,11 +80,16 @@ function App() {
           console.log(response)
           // Process recent entry or trigger notification here
           const status = response.data.alarmStatus.lockedStatus
+
           console.log(status)
+          
           if (status != prev){
+            localStorage.setItem('savedPrev', JSON.stringify(status));
             prev = status
             displayNotification(status)
           }
+        
+          
 
           
 
