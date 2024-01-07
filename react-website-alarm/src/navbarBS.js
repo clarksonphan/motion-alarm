@@ -10,7 +10,7 @@ import User from "./User.js"
 export const NavBarBootstrap = () =>(
     <Navbar bg = "myGray" variant ="dark" sticky = "top" expand = "md" collapseOnSelect>
         <Navbar.Brand>
-        <img src ={lock} width ="36px" height = "36px" />{' '}
+        <img src ={lock} width ="56px" height = "56px" />{' '}
         Dorm Alarm
         </Navbar.Brand>
 

@@ -7,11 +7,7 @@ import {Router, Routes, Route, BrowserRouter} from 'react-router-dom';
 import { NavBarBootstrap } from './navbarBS.js';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-/*The image src is currently temporary */
-/*System logs page will be considered the home page with both the logs + status
-  User Options will allow users to modify light/dark mode on the website?
-  About us is self explanatory
-*/
+import lock from "./lock.png";
 
 function App() {
   const [recentEntry, setRecentEntry] = useState(null);
@@ -19,6 +15,8 @@ function App() {
   
   
   const displayNotification = (lockStatus) => {
+    const notificationShown = localStorage.getItem('notificationShown');
+    console.log(notificationShown)
     if (Notification.permission !== 'granted') {
       Notification.requestPermission().then(permission => {
         if (permission === 'granted') {
@@ -41,7 +39,8 @@ function App() {
 
       if (notificationMessage !== '') {
         new Notification('Change in lock status!', {
-          body: notificationMessage
+          body: notificationMessage,
+          icon: lock
         });
       }
     }
